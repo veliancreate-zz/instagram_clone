@@ -22,4 +22,16 @@ feature 'Posts' do
 
   end 
 
+  context 'prompts user to fill out a form then displays new post' do 
+    scenario 'display posts' do 
+      visit '/posts'
+      click_link('Add a post')
+      fill_in 'Title', with: 'Me with my dog'
+      fill_in 'Description', with: 'My best friend'
+      click_button 'Create restaurant'
+      expect(page).to have_content('Me with my dog')
+      expect(current_path).to eq '/posts'
+    end  
+  end  
+
 end  
