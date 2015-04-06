@@ -3,6 +3,7 @@
     = link_to post.title, post_path(post)
     %p= post.description
     = image_tag post.image.url(:thumb)
+    = link_to "Edit post", edit_post_path(post)
 - else
   No posts added yet
 
