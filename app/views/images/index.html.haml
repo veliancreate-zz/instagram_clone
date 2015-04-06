@@ -1,0 +1,8 @@
+- if @images.any?
+  - @images.each do |image|
+    %h2= image.title
+    %p= image.description
+- else
+  No images added yet
+      
+%a(href="#") Add an image
