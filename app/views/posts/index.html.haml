@@ -1,0 +1,8 @@
+- if @posts.any?
+  - @posts.each do |post|
+    %h2= post.title
+    %p= post.description
+- else
+  No posts added yet
+
+%a(href="#") Add a post
