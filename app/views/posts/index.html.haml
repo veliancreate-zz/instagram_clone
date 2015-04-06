@@ -1,7 +1,8 @@
 - if @posts.any?
   - @posts.each do |post|
-    %h2= post.title
+    = link_to post.title, post_path(post)
     %p= post.description
+    = image_tag post.image.url(:thumb)
 - else
   No posts added yet
 

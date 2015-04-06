@@ -28,9 +28,20 @@ feature 'Posts' do
       click_link('Add a post')
       fill_in 'Title', with: 'Me with my dog'
       fill_in 'Description', with: 'My best friend'
-      click_button 'Create restaurant'
+      click_button 'Create Post'
       expect(page).to have_content('Me with my dog')
       expect(current_path).to eq '/posts'
+    end  
+  end  
+
+  context 'viewing post page' do 
+    
+    let!(:post){Post.create(title:'Me with my dog')}
+
+    scenario 'lets a user view a post page' do 
+      visit '/posts'
+      click_link('Me with my dog')
+      expect(current_path).to eq("/posts/#{post.id}")
     end  
   end  
 
