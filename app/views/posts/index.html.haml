@@ -1,25 +1,37 @@
 - if @posts.any?
   - @posts.each do |post|
-    = link_to post.title, post_path(post)
-    %p= post.description
-    = image_tag post.image.url(:thumb)
-    = link_to "Edit post", edit_post_path(post)
-    = link_to "Delete post", post_path(post), method: :delete
+    %h2  
+      = link_to post.title, post_path(post)
+    %h3 
+      Posted by
+      = image_tag post.user.image.url(:thumb)
+      = post.user.user_name    
+    %p= post.description  
+    = image_tag post.image.url(:medium)
+    - if current_user && current_user.created_post?(post)
+      = link_to "Edit post", edit_post_path(post)
+      = link_to "Delete post", post_path(post), method: :delete
     = link_to "Leave comment", new_post_comment_path(post)
     = link_to "Like", post_likes_path(post), class: 'likes-link'
     %span.likes_count= post.likes.count 
     = 'like'.pluralize post.likes.count
-    %p.likes_message
+    - if current_user && current_user.has_liked?(post)
+      %p You liked this!
+    - else  
+      %p.likes_message
 
     - if post.comments.any?
       - post.comments.each do |comment|
         %ul 
           %li 
+            = comment.user.user_name
+            commented:
             = comment.text
+            - if current_user && current_user.created_comment?(comment)
+              = link_to "Delete comment", comment_path(comment), method: :delete  
+
     - else
       %p No comments yet...    
 
 - else
   No posts added yet
-
-= link_to "Add a post", new_post_path

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -31,7 +30,6 @@ gem 'omniauth-facebook'
 
 gem 'paperclip'
 
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,11 +50,11 @@ group :development, :test do
   gem 'spring'
 end
 
-group :test do 
+group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'rspec-collection_matchers'
   gem 'shoulda'
   gem 'poltergeist'
   gem 'database_cleaner'
-end  
+end

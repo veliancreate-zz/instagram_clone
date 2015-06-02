@@ -18,11 +18,11 @@ feature 'liking posts' do
     expect(page).to have_content('1 Like')
   end
 
-  scenario 'a user cannot like a post if she has already liked it' do 
+  scenario 'a user cannot like a post if she has already liked it' do
     visit '/posts'
     click_link 'Like'
     click_link 'Like'
-    expect(page).to have_content("You've already liked this post!")    
-  end  
+    expect(page).to have_content("You've already liked this post!")
+  end
 
 end
