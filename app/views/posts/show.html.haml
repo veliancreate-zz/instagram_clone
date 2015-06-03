@@ -1,3 +1,4 @@
-%p= @post.title
-%p= @post.description
-%p= image_tag @post.image.url(:thumb)
+%section{class: "post-view"}  
+  %h2= @post.title
+  %h3= @post.description
+  = image_tag @post.image.url(:medium)

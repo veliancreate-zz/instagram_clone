@@ -1,43 +1,41 @@
-<h2>Sign up</h2>
+<h3 class="form-title">Sign up</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :name %><br />
+  <div>
+    <%= f.label :name %>
     <%= f.text_field :name, autofocus: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_name %><br />
+  <div>
+    <%= f.label :user_name %>
     <%= f.text_field :user_name %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div>
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %><br>
+    <%= f.password_field :password, autocomplete: "off", class: "password-conf" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :image %><br /> 
-    <%= f.file_field :image %><br /> 
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %><br />  
   </div>
     
-  <div class="actions">
+  <div>
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

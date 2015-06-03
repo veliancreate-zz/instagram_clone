@@ -1,4 +1,6 @@
 = form_for [@post, @comment] do |f|
-  = f.label :text
-  = f.text_area :text
-  = f.submit 'Leave Comment'
+  = f.label :write_your_comment_here
+  %div  
+    = f.text_area :text
+  %div  
+    = f.submit 'Leave Comment'

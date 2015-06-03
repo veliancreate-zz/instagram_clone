@@ -2,10 +2,193 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-header h1{
-  font-family: 'Pacifico', cursive;
+a,
+a:link,
+a:visited,
+a:focus{
+  color: #fff;
+  text-transform: uppercase;
 }
 
-footer h2{
-  font-family: 'Pacifico', cursive;
+h3.form-title{margin-top: 20px;}
+
+.post-view{
+  padding: 10px 0;
+  margin: 10px 0;
+}
+
+.password-conf{margin-left: 150px;}
+
+body{background-color: #DFE1ED;}
+
+.avatar{border-radius: 40px;}
+
+input[type="submit"]{
+  background-color: #83C8D6;
+  border: none;
+  color: #fff;
+}
+
+main.container{width: 60%;}
+form{
+  background: url('megaphone-medium.png') no-repeat right;
+  margin-top: 20px;
+  padding: 20px 0;
+  div{
+    margin-bottom: 20px;
+  }
+  div:last-child{
+    margin-bottom: 0;
+  }
+  label{
+    display: inline-block;
+    width: 20%;
+  }
+}
+
+main > section{
+  width: 90%;
+  margin: 0 auto;  
+}
+
+body{
+  color: #000;
+}
+
+.post{
+  background: url('megaphone-bg.png') no-repeat;
+  background-position: right 90%;
+  background-color: #fff; 
+  margin: 20px;
+  padding: 30px;
+  border-radius: 10px;
+  .comment-avatar{
+    width: 5%;
+    border-radius: 2px;
+  }
+  ul.comment-feed{
+    border-bottom: solid 1px;
+    a{
+      background-color: initial;
+      padding: 0;
+      color: red;
+      text-transform: initial;
+    }
+  }
+  a{
+    display: inline-block;
+    padding: 10px;
+    background-color: #000;
+  }
+  h4{
+    img{
+      border-radius: 50px;
+      width: 10%;
+    }  
+  }
+  h5.description{
+    border-top: solid 1px;
+  }
+  h4.comments{
+    border-bottom: 3px solid;  
+  }
+  h4.post-title{ 
+    border-bottom: solid 4px;
+    border-color: #99C1E2;
+    a{
+      width: 80%;
+      padding: 5px;
+      background-color: initial;
+      color: #000;
+    }
+    span{
+      width: 20%;
+    }
+  }
+  #post-options{
+    width: 50%;
+    a{
+      transition: 1s;
+    }
+    a:hover{
+      background-color: #83C8D6;
+    }
+  }
+  #post-image-div{
+    width: 50%;
+  }  
+}
+
+header,
+footer{
+  background-color: #3F77A7;
+  color: #fff;
+  h1,
+  h2{
+    font-family: 'Pacifico', cursive;
+  }  
+}
+
+footer{
+  text-align: center;
+  padding: 20px 0;
+}
+
+header {
+  section.container{
+    position:relative;
+  }
+  h1{
+    background-image: url('megaphone-icon.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 60px;
+    display: inline-block;
+    font-size: 3.5rem;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    a:link{
+      text-transform: initial;
+    }
+  } 
+  nav{
+    div{
+      margin-top: 20px;
+      float: right;
+      position: static;
+      a{
+        display: inline-block;
+        float: right;
+        transition: 1s;
+      }
+      a:last-child{
+        margin-right: 10px;
+      }
+      a:hover{
+        background-color: #83C8D6;
+        color: #fff;
+      }
+    }
+    div#signed-in{
+      float: right;
+    }
+    a{
+      display: inline-block;
+      padding: 10px;
+      background-color: #55A1E2;
+      margin: 0 10px 20px 0;
+      border-radius: 10px;
+    }
+    a:last-child{
+      margin-right: 0;
+    }  
+    img{
+      right: 20px;
+      float: right;
+      width: 15%;
+      border-radius: 50px;
+      position: relative;
+    }
+  }  
 }

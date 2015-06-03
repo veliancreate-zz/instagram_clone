@@ -1,7 +1,12 @@
 = form_for @post, html: {multipart: true} do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.label :description
-  = f.text_field :description
-  = f.file_field :image 
-  = f.submit
+  %div
+    = f.label :title
+    = f.text_field :title
+  %div  
+    = f.label :description
+    = f.text_field :description
+  %div  
+    = f.label :upload_an_image
+    = f.file_field :image 
+  %div
+    = f.submit
