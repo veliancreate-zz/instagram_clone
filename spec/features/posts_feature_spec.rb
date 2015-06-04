@@ -29,7 +29,7 @@ feature 'Posts' do
     scenario 'let a user delete a post' do
       click_link 'Delete post'
       expect(page).not_to have_content 'Me with my dog'
-    end 
+    end
   end
 
   context 'prompts user to fill out a form then displays new post' do

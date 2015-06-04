@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  devise :omniauthable, omniauth_providers: [:facebook]
 
   validates :user_name,
-    :presence => true,
-    :uniqueness => {
-    :case_sensitive => false
-  } # etc.       
+            presence: true,
+            uniqueness: {
+              case_sensitive: false
+            } # etc.
 
   has_many :posts
   has_many :likes
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name   # assuming the user model has a name
       user.user_name = auth.info.name
       user.image = auth.info.image.gsub('http://', 'https://') # assuming the user model has an image
@@ -47,6 +47,6 @@ class User < ActiveRecord::Base
 
   def created_comment?(comment)
     comments.include? comment
-  end  
+  end
 
 end

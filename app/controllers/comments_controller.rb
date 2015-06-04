@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     flash[:notice] = 'Comment deleted successfully'
     redirect_to '/posts'
-  end  
+  end
 
   def comments_params
     params.require(:comment).permit(:text)
