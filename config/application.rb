@@ -31,5 +31,6 @@ module InstagramClone
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_view.field_error_proc = proc { |html_tag| html_tag }
   end
 end

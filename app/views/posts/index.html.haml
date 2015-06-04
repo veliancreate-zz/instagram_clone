@@ -1,6 +1,6 @@
-%div{class: "post col-xs-12 clearfix"}  
-  - if @posts.any?
-    - @posts.each do |post|
+- if @posts.any?
+  - @posts.each do |post|
+    %div{class: "post col-xs-12 clearfix"}      
       %section{class: "clearfix"}   
         %h4{class: "post-title"}  
           = link_to post.title, post_path(post)
@@ -9,7 +9,7 @@
             = 'like'.pluralize post.likes.count
         %h4 
           = image_tag post.user.image.url(:thumb), class: "avatar"
-          = post.user.user_name 
+          = post.user.name 
         %h5{class: "description"}
           = post.description
         %div{class: "row"}    
@@ -50,5 +50,5 @@
                   = link_to "Delete comment", comment_path(comment), method: :delete  
         - else
           %p No comments yet...    
-  - else
-    No posts added yet
+- else
+  No posts added yet
