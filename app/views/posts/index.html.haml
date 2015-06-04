@@ -1,4 +1,4 @@
-%div{class: "post clearfix"}  
+%div{class: "post col-xs-12 clearfix"}  
   - if @posts.any?
     - @posts.each do |post|
       %section{class: "clearfix"}   
@@ -11,24 +11,25 @@
           = image_tag post.user.image.url(:thumb), class: "avatar"
           = post.user.user_name 
         %h5{class: "description"}
-          = post.description  
-        %div{class: "float-left", id: "post-image-div"}
-          = image_tag post.image.url(:medium)
-        %ul{class: "float-right", id: "post-options"}  
-          - if current_user && current_user.created_post?(post)
-            %li
-              = link_to "Edit post", edit_post_path(post)
-            %li  
-              = link_to "Delete post", post_path(post), method: :delete
-            %li  
-              = link_to "Leave comment", new_post_comment_path(post)
-            %li  
-              = link_to "Like", post_likes_path(post), class: 'likes-link'  
-          - else    
-            %li  
-              = link_to "Leave comment", new_post_comment_path(post)
-            %li  
-              = link_to "Like", post_likes_path(post), class: 'likes-link'
+          = post.description
+        %div{class: "row"}    
+          %div{class: "col-xs-12 col-sm-6", id: "post-image-div"}
+            = image_tag post.image.url(:medium)
+          %ul{class: "col-xs-12 col-sm-6", id: "post-options"}  
+            - if current_user && current_user.created_post?(post)
+              %li
+                = link_to "Edit post", edit_post_path(post)
+              %li  
+                = link_to "Delete post", post_path(post), method: :delete
+              %li  
+                = link_to "Leave comment", new_post_comment_path(post)
+              %li  
+                = link_to "Like", post_likes_path(post), class: 'likes-link'  
+            - else    
+              %li  
+                = link_to "Leave comment", new_post_comment_path(post)
+              %li  
+                = link_to "Like", post_likes_path(post), class: 'likes-link'
       %section
         - if current_user && current_user.has_liked?(post)
           %p You liked this!

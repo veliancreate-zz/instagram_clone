@@ -17,6 +17,10 @@ h3.form-title{margin-top: 20px;}
   margin: 10px 0;
 }
 
+.container{
+  margin: 0 auto;
+}
+
 .password-conf{margin-left: 150px;}
 
 body{background-color: #DFE1ED;}
@@ -29,7 +33,6 @@ input[type="submit"]{
   color: #fff;
 }
 
-main.container{width: 60%;}
 form{
   background: url('megaphone-medium.png') no-repeat right;
   margin-top: 20px;
@@ -82,22 +85,22 @@ header {
     padding-left: 60px;
     display: inline-block;
     font-size: 3.5rem;
-    margin-top: 10px;
-    position: absolute;
-    bottom: 0;
+    margin-top: 20px;
     a:link{
       text-transform: initial;
     }
   } 
   nav{
     div{
+      width: 90%;
+      margin: 0 auto;
       margin-top: 20px;
-      float: right;
       position: static;
       a{
         display: inline-block;
         float: right;
         transition: 1s;
+        width: 100%;
       }
       a:last-child{
         margin-right: 10px;
@@ -107,9 +110,7 @@ header {
         color: #fff;
       }
     }
-    div#signed-in{
-      float: right;
-    }
+
     a{
       display: inline-block;
       padding: 10px;
@@ -121,11 +122,8 @@ header {
       margin-right: 0;
     }  
     img{
-      right: 20px;
-      float: right;
-      width: 15%;
+      width: 10%;
       border-radius: 50px;
-      position: relative;
     }
   }  
 }
@@ -134,7 +132,6 @@ header {
   background: url('megaphone-bg.png') no-repeat;
   background-position: right 90%;
   background-color: #fff; 
-  margin: 20px;
   padding: 30px;
   border-radius: 10px;
   .comment-avatar{
@@ -181,15 +178,41 @@ header {
     }
   }
   #post-options{
-    width: 50%;
     a{
       transition: 1s;
     }
     a:hover{
       background-color: #83C8D6;
     }
+  } 
+}
+
+@media (min-width: 768px) {
+  main.container {
+    width: 85%;
   }
-  #post-image-div{
-    width: 50%;
-  }  
+  header nav div a{
+    width: auto;
+  }
+  .post{
+    margin: 40px auto;
+  }
+  header div#signed-in{
+    float: right;
+  }
+  header nav div{
+    float: right;
+  }
+  header nav img{
+    float: right;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 992px) {
+  main.container {
+    width: 70%;
+  }
+}
+@media (min-width: 1200px) {
+
 }
