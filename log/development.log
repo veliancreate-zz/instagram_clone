@@ -36521,3 +36521,241 @@ Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 14:48:32 +0100
 
 
 Started GET "/assets/megaphone-medium.png" for ::1 at 2015-06-04 14:48:32 +0100
+
+
+Started GET "/" for ::1 at 2015-06-04 16:14:01 +0100
+Processing by PostsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mPost Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mComment Exists (0.3ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1  [["post_id", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mComment Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 2]]
+  Rendered posts/index.html.haml within layouts/application (120.3ms)
+Completed 200 OK in 672ms (Views: 632.3ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:14:03 +0100
+
+
+Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 16:14:03 +0100
+
+
+Started GET "/users/edit.3" for ::1 at 2015-06-04 16:14:12 +0100
+Processing by Devise::RegistrationsController#edit as 
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  Rendered devise/registrations/edit.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 161ms (Views: 145.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/megaphone-medium.png" for ::1 at 2015-06-04 16:14:12 +0100
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:14:13 +0100
+
+
+Started PUT "/users" for ::1 at 2015-06-04 16:14:31 +0100
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pzcu8Dk2Ld5IxSRgyyLAHGovuCCwmn3UQSjOP1GY0rrr7U0zf9kr6JdJ8uHWLkX/oZpsWeu1aOcLq2+mGA87Ow==", "user"=>{"name"=>"Hillary Clinton", "user_name"=>"hills", "email"=>"hillary@clintons.com", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fea6aa2cd60 @tempfile=#<Tempfile:/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/RackMultipart20150604-23767-1az9hs4.jpg>, @original_filename="hillary.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"hillary.jpg\"\r\nContent-Type: image/jpeg\r\n">, "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-1bhsrrl.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke34.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke34.jpg[0]'
+Command :: convert '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke34.jpg[0]' -auto-orient -resize "300x" -crop "300x300+0+37" +repage '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke3420150604-23767-16909cu'
+Command :: file -b --mime '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke3420150604-23767-16909cu'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke34.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke34.jpg[0]'
+Command :: convert '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke34.jpg[0]' -auto-orient -resize "100x" -crop "100x100+0+12" +repage '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke3420150604-23767-jeicni'
+Command :: file -b --mime '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-2tke3420150604-23767-jeicni'
+Command :: file -b --mime '/var/folders/1j/fr60v7hn4xg0mjmj8j8mb4_00000gn/T/6244ad4169ebba6e2aadf77aa94a9a8a20150604-23767-1ujnjnv.jpg'
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."user_name") = LOWER('hills') AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "name" = $1, "image_file_name" = $2, "image_content_type" = $3, "image_file_size" = $4, "image_updated_at" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["name", "Hillary Clinton"], ["image_file_name", "hillary.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 3864922], ["image_updated_at", "2015-06-04 15:14:32.022339"], ["updated_at", "2015-06-04 15:14:34.303225"], ["id", 3]]
+  [1m[35m (15.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 2570ms (ActiveRecord: 17.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-04 16:14:34 +0100
+Processing by PostsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (0.3ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Exists (0.3ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1  [["post_id", 2]]
+  Rendered posts/index.html.haml within layouts/application (32.8ms)
+Completed 200 OK in 120ms (Views: 114.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:14:34 +0100
+
+
+Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 16:14:34 +0100
+
+
+Started POST "/posts/1/likes" for ::1 at 2015-06-04 16:14:43 +0100
+Processing by LikesController#create as */*
+  Parameters: {"post_id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (17.8ms)[0m  [1mINSERT INTO "likes" ("user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["post_id", 1], ["created_at", "2015-06-04 15:14:43.394294"], ["updated_at", "2015-06-04 15:14:43.394294"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/posts/1/comments/new" for ::1 at 2015-06-04 16:14:45 +0100
+Processing by CommentsController#new as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered comments/new.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 268ms (Views: 263.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:14:46 +0100
+
+
+Started GET "/assets/megaphone-medium.png" for ::1 at 2015-06-04 16:14:46 +0100
+
+
+Started POST "/posts/1/comments" for ::1 at 2015-06-04 16:15:07 +0100
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BkeM4VYTde3i15Bvj9okjPX1+LiD3I7GVKCllaDbRHnSne8iEPxz2z1bRu6S1qFvPkAswdjzm/UeIwQM6Uyt+A==", "comment"=>{"text"=>"You would have made a great President!"}, "commit"=>"Leave Comment", "post_id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "You would have made a great President!"], ["user_id", 3], ["post_id", 1], ["created_at", "2015-06-04 15:15:07.933102"], ["updated_at", "2015-06-04 15:15:07.933102"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts" for ::1 at 2015-06-04 16:15:07 +0100
+Processing by PostsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Exists (0.5ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1  [["post_id", 2]]
+  Rendered posts/index.html.haml within layouts/application (31.4ms)
+Completed 200 OK in 95ms (Views: 89.5ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 16:15:08 +0100
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:15:08 +0100
+
+
+Started GET "/posts/2/comments/new" for ::1 at 2015-06-04 16:15:17 +0100
+Processing by CommentsController#new as HTML
+  Parameters: {"post_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered comments/new.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 81ms (Views: 77.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:15:17 +0100
+
+
+Started GET "/assets/megaphone-medium.png" for ::1 at 2015-06-04 16:15:17 +0100
+
+
+Started POST "/posts/2/comments" for ::1 at 2015-06-04 16:15:53 +0100
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FzJ8F0nUzmMICjS9xqVm62OPNPg/zLSN9gckcNUdb1LD6B/UDzvIVdeG4jzbqeMIqDrggWTjob68hIXpnIqG0w==", "comment"=>{"text"=>"I doubt this would get through Congress. "}, "commit"=>"Leave Comment", "post_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["text", "I doubt this would get through Congress. "], ["user_id", 3], ["post_id", 2], ["created_at", "2015-06-04 15:15:53.412178"], ["updated_at", "2015-06-04 15:15:53.412178"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts" for ::1 at 2015-06-04 16:15:53 +0100
+Processing by PostsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1  [["post_id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 2]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 4]]
+  Rendered posts/index.html.haml within layouts/application (33.9ms)
+Completed 200 OK in 97ms (Views: 91.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:15:53 +0100
+
+
+Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 16:15:53 +0100
