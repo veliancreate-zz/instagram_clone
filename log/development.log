@@ -36759,3 +36759,113 @@ Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:15:53 +0100
 
 
 Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 16:15:53 +0100
+
+
+Started GET "/" for ::1 at 2015-06-04 16:49:04 +0100
+Processing by PostsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 1]]
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Exists (0.3ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["user_id", 3], ["id", 2]]
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" INNER JOIN "likes" ON "posts"."id" = "likes"."post_id" WHERE "likes"."user_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 2]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1  [["post_id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."user_id" = $1 AND "comments"."id" = $2 LIMIT 1[0m  [["user_id", 3], ["id", 4]]
+  Rendered posts/index.html.haml within layouts/application (37.0ms)
+Completed 200 OK in 423ms (Views: 418.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 16:49:05 +0100
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 16:49:06 +0100
+
+
+Started GET "/" for ::1 at 2015-06-04 17:05:56 +0100
+Processing by PostsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."post_id" = $1 LIMIT 1[0m  [["post_id", 2]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1  [["post_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered posts/index.html.haml within layouts/application (29.5ms)
+Completed 200 OK in 136ms (Views: 132.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.self-f78feb67e8049abf326e5f19e9ab2ba7f61b9f1fb25454cd35f52b7a3ef8936a.css?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/reset.self-54ad91baf7df40fc4966d82ba226c585b241ed78a6ea26ac8806cfaceff4ed20.css?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/posts.self-dc246a710e3a1b0d86683782624168ca1dcb99a8a51a0aae18f347450115daed.css?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/normalize.self-5ff71297ffe8d47060ffb409f9afb398c9abe9e95fc29c20c00b5c57599126b1.css?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/skeleton.self-234bb284c2c628398e01da0499dbcf3bc1a44dfca33a0a7e64cf9bc0071d39fc.css?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/grid.self-b9377e9129e4d4829b19499502a9e2205de71a21f10d16a289a0e2c43ad56d4a.css?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/facebook_sdk.self-12b93e3b42e7e623cac7219986c75b943fb1d5792d024afc1197860db52f5da3.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/likes.self-f7785914bcdb05354c1a164ca27613bbd73f9304087725be6cdf06e5a146ff2b.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/registrations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/github-22ed95ff774cee8427c86b60288af4077b3b26424c758bec95a34aa8b7a88937.png" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/megaphone-icon.png" for ::1 at 2015-06-04 17:05:57 +0100
+
+
+Started GET "/assets/megaphone-bg.png" for ::1 at 2015-06-04 17:05:57 +0100
