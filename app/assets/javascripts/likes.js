@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('.likes-link').on('click', function(event){
     event.preventDefault();
 
-    var likeCount = $('.likes_count');
+    var likeCount = $(this).closest("span");
 
     function pluralize_like(number){
       if(number > 1){ return 'likes' }
