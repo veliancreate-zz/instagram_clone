@@ -11,6 +11,8 @@ Ruby, Rails (Devise, Omniauth, Active Record), Rspec, Capybara, AJAX, SASS
 
 I felt pleased that I was able to complete this challenge successfully. The result felt more like a 'proper' web app as there is a proper user verification with Devise, Facebook login, commenting on posts and even 'likes'. I'd like to use Angular to create filters for search functionality as well. 
 
+The app can be viewed [on Heroku here](https://nicestagram.herokuapp.com/)
+
 Instagram Challenge
 ===================
 
